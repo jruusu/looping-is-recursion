@@ -47,7 +47,12 @@
       (recur (rest s) (toggle acc (first s))))))
 
 (defn fast-fibo [n]
-  ":(")
+  (loop [acc0 0
+         acc1 1
+         n n]
+    (if (zero? n)
+      acc0
+      (recur acc1 (+ acc0 acc1) (dec n)))))
 
 (defn cut-at-repetition [a-seq]
   [":("])
