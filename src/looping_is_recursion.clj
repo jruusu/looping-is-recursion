@@ -9,7 +9,9 @@
     (helper base base exp)))
 
 (defn last-element [a-seq]
-  ":(")
+  (if (<= (count a-seq) 1)
+    (first a-seq)
+    (recur (rest a-seq))))
 
 (defn seq= [seq1 seq2]
   ":(")
