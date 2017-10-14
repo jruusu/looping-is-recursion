@@ -55,5 +55,11 @@
       (recur acc1 (+ acc0 acc1) (dec n)))))
 
 (defn cut-at-repetition [a-seq]
-  [":("])
+  (loop [a-seq a-seq
+         acc []
+         seen #{}]
+    (let [x (first a-seq)]
+      (if (or (empty? a-seq) (contains? seen x))
+        acc
+        (recur (rest a-seq) (conj acc x) (conj seen x))))))
 
