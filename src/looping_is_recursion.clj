@@ -36,8 +36,15 @@
       (/ acc n)
       (recur (rest s) (+ acc (first s)) (inc n)))))
 
+(defn toggle [a-set elem]
+  (if (contains? a-set elem) (disj a-set elem) (conj a-set elem)))
+
 (defn parity [a-seq]
-  ":(")
+  (loop [s a-seq
+         acc #{}]
+    (if (empty? s)
+      acc
+      (recur (rest s) (toggle acc (first s))))))
 
 (defn fast-fibo [n]
   ":(")
